@@ -325,3 +325,29 @@ apply函数是将一个过程应用于一个表（译注：将表展开，作为
 (apply + 1 2 '(3 4 5))    ;⇒  15
 (apply - 100 '(5 12 17))  ;⇒  66
 ```
+
+### set!
+set!可以为一个参数赋值。赋值前参数应被定义。
+
+``` scheme
+(define var 1)
+(set! var (* var 10))
+var ⇒ 10
+
+(let ((i 1))
+    (set! i (+ i 3))
+    i)
+⇒ 4
+```
+
+### 静态作用域（词法闭包）
+Scheme中变量的作用域被限定在了源码中定义其的那个括号里。作用域与源代码书写方式一致的作用域称为“词法闭包（Lexical closure）”或“静态作用域（Static scope）”。
+
+### 动态作用域
+“动态作用域（Dynamic scope）”的作用域。这种作用域仅在程序运行时确定。
+
+### 副作用
+Scheme过程的主要目的是返回一个值，而另一个目的则称为副作用（Side Effect）。赋值和IO操作就是副作用。
+
+### 参考资料
+- [Scheme Tutorial](https://deathking.github.io/yast-cn/)
